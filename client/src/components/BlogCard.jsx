@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MyPlaceHolder from '../../img/22.jpg';
 
 const BlogCard = (props) => {
-    //DESTRUCTURE THAT BITCH
+    //DESTRUCTURE
     const { id, title, content } = props.blog;
     return (
         <article className="card mb-4">

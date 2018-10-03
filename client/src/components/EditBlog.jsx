@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as blogServices from '../services/blogs'
 
 class EditBlog extends Component {
     constructor(props) {
@@ -11,8 +12,8 @@ class EditBlog extends Component {
     }
 
     componentDidMount() {
-        fetch(`/api/blogs/${this.props.match.params.id}`)
-            .then(res => res.json())
+
+        blogServices.one(this.props.match.params.id)
             .then(data => this.setState({
                 blogPostObject: data,
                 title: data.title,
@@ -26,18 +27,8 @@ class EditBlog extends Component {
             title: this.state.title,
             content: this.state.content
         };
-
-        fetch(`/api/blogs/${this.props.match.params.id}`, {
-            method: 'PUT',
-            body: JSON.stringify(editBlogPost),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => this.setState({
-                blogPostObject: data
-            }))
+        blogServices.update(this.props.match.params.id, editBlogPost)
+            .then(response => this.props.history.replace(`/`))
             .catch(err => console.log(`Didn't update it: ${err}`))
     };
 
@@ -68,7 +59,7 @@ class EditBlog extends Component {
                             <div className="form-group">
                                 <label for="title">Your story</label>
                                 {/* <div className="editor"> */}
-                                <textarea className="editor" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })} style={{ height: '20em' }} />                               
+                                <textarea className="editor" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })} style={{ height: '20em' }} />
                             </div>
 
                             <button onClick={(e) => this.handleEditBlogButton(e)} className="btn btn-success">Publish</button>

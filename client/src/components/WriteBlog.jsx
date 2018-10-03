@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as blogServices from '../services/blogs';
 
 class WriteBlog extends Component {
     constructor(props) {
@@ -13,21 +14,9 @@ class WriteBlog extends Component {
         //fetch post
         e.preventDefault();
 
-        let newBlogPost = {
-            title: this.state.title,
-            content: this.state.content
-        };
-
-        fetch(`/api/blogs/`, {
-            method: 'POST',
-            body: JSON.stringify(newBlogPost),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => this.props.history.replace(`/`))
+        blogServices.insert(this.state)
+            .then(response => this.props.history.replace(`/`))
             .catch(err => console.log(`You fucked up: ${err}`))
-        // console.log('We done?');
     }
 
     render() {
@@ -56,9 +45,9 @@ class WriteBlog extends Component {
                             <div className="form-group">
                                 <label for="title">Your story</label>
                                 {/* <div className="editor"> */}
-                                    <textarea className="editor" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })} style={{ height: '20em' }} />
-                                    {/* FOR FUTURE ADVANCED USE */}
-                                    {/* <div className="js-editable">
+                                <textarea className="editor" value={this.state.content} onChange={(e) => this.setState({ content: e.target.value })} style={{ height: '20em' }} />
+                                {/* FOR FUTURE ADVANCED USE */}
+                                {/* <div className="js-editable">
                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque <a href="#">penatibus</a> et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, <strong>pretium quis, sem.</strong></p>
 
                                         <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>

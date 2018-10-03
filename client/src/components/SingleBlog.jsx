@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import MyPlaceHolder from '../../img/22.jpg';
 import { Link } from 'react-router-dom';
+import * as blogServices from '../services/blogs';
 
 class SingleBlog extends Component {
     constructor(props) {
@@ -11,10 +12,9 @@ class SingleBlog extends Component {
     }
 
     componentWillMount() {
-        fetch(`/api/blogs/${this.props.match.params.id}`)
-            .then(data => data.json())
+
+        blogServices.one(this.props.match.params.id)
             .then(blog => {
-                //fetch SINGLE blog w/ this.props.match.params.id
                 this.setState({
                     singleBlog: blog
                 });
@@ -22,14 +22,13 @@ class SingleBlog extends Component {
     }
 
     handleDeleteClick(e) {
-        fetch(`/api/blogs/${this.props.match.params.id}`, {
-            method: 'DELETE'
-        })
+
+        blogServices.destroy(this.props.match.params.id)
             .catch(err => (console.log(`I'm not deleted: ${err}`)))
     }
 
     render() {
-        // 8======3 ~~~~~ destructure
+        //destructure
 
         const { id, title, content } = this.state.singleBlog;
         return (

@@ -19,13 +19,13 @@ class Navigation extends Component {
                 <Fragment>
                     <Header />
                     <Switch>
-                        <Route path="/" component={BlogsList} />
+                        <Route exact path="/" component={BlogsList} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
-                        <Route path="/admin" component={Admin} />
+                        <privateRoute exact path="/admin" component={Admin} />
                         <Route exact path="/blog/:id" component={SingleBlog} />
-                        <Route path="/write" component={WriteBlog} />
-                        <Route exact path="/blog/:id/edit" component={EditBlog} />
+                        <PrivateRoute exact path="/write" component={WriteBlog} />
+                        <PrivateRoute exact path="/blog/:id/edit" component={EditBlog} />
                     </Switch>
                 </Fragment>
             </Router>

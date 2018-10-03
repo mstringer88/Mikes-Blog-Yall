@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import BlogCard from './BlogCard';
 import Sidebar from './Sidebar';
-
-// import { FAKE_API_CALL } from '../../../TestData';
+import * as blogServices from '../services/blogs';
 
 class BlogsList extends Component {
     constructor(props) {
@@ -14,9 +13,8 @@ class BlogsList extends Component {
     }
 
     componentWillMount() {
-        // let blogsList = FAKE_API_CALL();
-        fetch('/api/blogs')
-            .then(data => data.json()) //res is an array of blogs   
+
+        blogServices.all()
             .then(res => {
                 let blogsListFirst = res.splice(0, (res.length / 2));
                 let blogsListSecond = res.splice((res.length / 2) - 2, res.length);
@@ -49,7 +47,7 @@ class BlogsList extends Component {
                         <div className="col-md-9">
                             <div className="row">
                                 <div className="col-md-6">
-                                    {/* <BlogCard /> */}
+                                
                                     {this.renderFirstBlogs()}
                                 </div>
 

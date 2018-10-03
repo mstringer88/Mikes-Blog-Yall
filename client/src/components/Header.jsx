@@ -37,10 +37,6 @@ const Header = () => {
                             </li>
                         </ul>
                     </div>
-
-                    {/* <form className="form-inline" role="search"> */}
-                    {/* <input className="search js-search form-control form-control-rounded mr-sm-2" type="text" title="Enter search query here.." placeholder="Search.." aria-label="Search" /> */}
-                    {/* </form> */}
                 </div>
             </nav>
         </header>
