@@ -13,10 +13,13 @@ class WriteBlog extends Component {
     handleBlogSubmit(e) {
         //fetch post
         e.preventDefault();
-
-        blogServices.insert(this.state)
-            .then(response => this.props.history.replace(`/`))
-            .catch(err => console.log(`You fucked up: ${err}`))
+        let body = {
+            title: this.state.title,
+            content: this.state.content
+        }
+        blogServices.insert(body);
+            // .then(response => this.props.history.replace(`/`))
+            // .catch(err => console.log(`You fucked up: ${err}`))
     }
 
     render() {

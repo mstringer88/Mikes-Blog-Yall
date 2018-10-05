@@ -3,11 +3,13 @@ import peopleRouter from './people';
 import blogsRouter from './blogs';
 import usersRouter from './user';
 import authRouter from './auth';
+import contactRouter from './contactform';
 import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
 
 let router = Router();
 
 router.use('/auth', authRouter);
+router.use('/contact', contactRouter);
 
 router.route('*')
     .post(tokenMiddleware, isLoggedIn)

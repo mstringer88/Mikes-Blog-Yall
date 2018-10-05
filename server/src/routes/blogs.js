@@ -24,9 +24,10 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body.title);
     let createBlog = await blogs.insert(req.body)
 
-    return res.sendStatus(200)
+    res.sendStatus(200)
 });
 
 router.put('/:id', async (req, res) => {
