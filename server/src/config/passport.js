@@ -26,7 +26,7 @@ function configurePassport(app) {
                     let idObj = await tokensTable.insert({
                         userid: user.id
                     });
-                    let token = encode(idObj);
+                    let token = encode(idObj.id);
                     return done(null, { token });
                 } else {
                     // password is incorrect and does not match hash
