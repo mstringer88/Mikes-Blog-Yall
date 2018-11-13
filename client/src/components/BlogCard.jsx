@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MyPlaceHolder from '../../img/22.jpg';
+import moment from 'moment';
 
 const BlogCard = (props) => {
     //DESTRUCTURE
-    const { id, title, content } = props.blog;
+    const { id, title, content, _created } = props.blog;
     return (
         <article className="card mb-4">
             <header className="card-header">
                 <div className="card-meta">
                     {/* _CREATED PROPS */}
-                    <time className="timeago" datetime="2017-10-26 20:00">26 october 2017</time> in Journey
+                    <time className="timeago">{moment(_created).format("dddd, MMM Do YYYY, h:mm a")}</time>
                 </div>
                 {/* BLOG TITLE PROPS */}
                 <Link to={`/blog/${id}`}>
