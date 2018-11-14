@@ -4,10 +4,12 @@ import blogsRouter from './blogs';
 import usersRouter from './user';
 import authRouter from './auth';
 import { isLoggedIn, tokenMiddleware } from '../middleware/auth.mw';
+import authorRouter from './authors';
 
 let router = Router();
 
 router.use('/auth', authRouter);
+router.use('/authors', authorRouter);
 
 router.route('*')
     .post(tokenMiddleware, isLoggedIn)

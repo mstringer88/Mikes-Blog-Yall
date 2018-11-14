@@ -9,6 +9,7 @@ import Admin from './Admin';
 import Login from './auth/login';
 import Logout from './auth/logout';
 import PrivateRoute from './auth/privateRoute';
+import CreateLogin from './CreateLogin';
 
 
 
@@ -22,6 +23,7 @@ class Navigation extends Component {
                         <Route exact path="/" component={BlogsList} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/logout" component={Logout} />
+                        <Route exact path="/register" component={CreateLogin} />
                         <privateRoute exact path="/admin" component={Admin} />
                         <Route exact path="/blog/:id" component={SingleBlog} />
                         <PrivateRoute exact path="/write" component={WriteBlog} />
