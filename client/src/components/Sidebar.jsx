@@ -18,7 +18,7 @@ class Sidebar extends Component {
                 <div className="card mb-4">
                     <div className="card-body">
                         <h4 className="card-title">About</h4>
-                        <p className="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                        <p className="card-text">My name is Michael and I am a recent graduate of a coding bootcamp through Covalence. I have been married to my wife Tamara for a year and half and we have a golden named Jax. I was born and raised in Birmingham but spent some time working in southern California and traveling the world.</p>
                  </div>
                 </div>
             </aside>
@@ -27,11 +27,7 @@ class Sidebar extends Component {
                 <div className="card mb-4">
                     <div className="card-body">
                         <h4 className="card-title">Tags</h4>
-                        <Link className="btn btn-light btn-sm mb-1" to="/">Journey</Link>
-                        <Link className="btn btn-light btn-sm mb-1" to="/">Work</Link>
-                        <Link className="btn btn-light btn-sm mb-1" to="/">Lifestype</Link>
-                        <Link className="btn btn-light btn-sm mb-1" to="/">Photography</Link>
-                        <Link className="btn btn-light btn-sm mb-1" to="/">Food & Drinks</Link>
+                        <Link className="btn btn-light btn-sm mb-1" to="/life">Life</Link>
                     </div>
                 </div>
 
