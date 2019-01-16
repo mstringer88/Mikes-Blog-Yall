@@ -22,6 +22,6 @@ app.use('/api', routes);
 app.use(stateRouting);
 
 let port = process.env.PORT || 3001;
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
