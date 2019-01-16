@@ -7,7 +7,7 @@ import AuthButton from './auth/authButton';
 const Header = () => {
     return (
         <header role="banner">
-            <nav className="navbar navbar-expand-md navbar-light bg-white absolute-top">
+            <nav className="navbar navbar-expand-md navbar-light bg-white smoothscroll">
                 <div className="container">
 
                     <button className="navbar-toggler order-2 order-md-1" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,13 @@ const Header = () => {
                         </ul>
                     </div>
 
-                    <h1 className="font-weight-bold mx-auto order-1 order-md-3">Michael's Blog</h1>
+                    <h1 className="font-weight-bold mx-auto order-1 order-md-3 text-center">Michael's Blog</h1>
 
                     <div className="collapse navbar-collapse order-4 order-md-4" id="navbar">
                         <ul className="navbar-nav ml-auto">
+                            <li classname="nav-item">
+                                <Link to="/about" className="nav-link">About</Link>
+                            </li>
                             <li className="nav-item">
                                 <Link to="/contact" className="nav-link">Contact</Link>
                             </li>
