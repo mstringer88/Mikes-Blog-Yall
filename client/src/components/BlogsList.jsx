@@ -17,7 +17,7 @@ class BlogsList extends Component {
         blogServices.all()
             .then(res => {
                 let blogsListFirst = res.splice(0, (res.length / 2));
-                let blogsListSecond = res.splice((res.length / 2) - 2, res.length);
+                let blogsListSecond = res.splice((res.length / 2) - 1);
                 this.setState({
                     blogsListFirst,
                     blogsListSecond
@@ -44,7 +44,7 @@ class BlogsList extends Component {
             <main className="main pt-4" role="main">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-9">
+                        <div className="col-md-12">
                             <div className="row">
                                 <div className="col-md-6">
                                 
@@ -56,9 +56,9 @@ class BlogsList extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 ml-auto">
+                        {/* <div class="col-md-3 ml-auto">
                             <Sidebar />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </main>
