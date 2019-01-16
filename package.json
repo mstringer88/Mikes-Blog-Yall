@@ -3,6 +3,10 @@
     "version": "1.0.0",
     "description": "",
     "main": "server/lib/index.js",
+    "engines": {
+        "node": "10.9.0",
+        "npm": "6.5.0"
+    },
     "scripts": {
         "build:client": "webpack",
         "build:server": "babel ./server/src -d ./server/lib",
@@ -13,7 +17,8 @@
         "start": "npm run clean && npm run build:client && npm run build:server && npm run start:server",
         "start:server": "node server/lib/index.js",
         "watch:client": "webpack --watch",
-        "watch:server": "babel ./server/src -w -d ./server/lib"
+        "watch:server": "babel ./server/src -w -d ./server/lib",
+        "heroku-postbuild": "npm run build"
     },
     "author": "Covalence",
     "license": "ISC",
@@ -46,11 +51,12 @@
         "sass-loader": "^7.1.0",
         "stripe": "^6.11.0",
         "uuid": "^3.3.2",
-        "webpack": "^4.19.0"
+        "webpack": "^4.19.0",
+        "webpack-cli": "^3.1.0"
     },
     "devDependencies": {
         "concurrently": "^4.0.1",
-        "nodemon": "^1.18.4",
-        "webpack-cli": "^3.1.0"
+        "nodemon": "^1.18.4"
+        
     }
 }
