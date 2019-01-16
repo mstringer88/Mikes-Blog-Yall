@@ -35,10 +35,6 @@ class SingleBlog extends Component {
             <Fragment>
                 <article className="card mb-4">
                     <header className="card-header text-center">
-                        <div className="card-meta">
-                            {/* OPTIONAL _CREATED */}
-                            <time className="timeago" datetime="2017-10-26 20:00">26 october 2017</time> in Journey
-                        </div>
                         {/* BLOG TITLE */}
                         <h1 className="card-title">{title}</h1>
                     </header>
